@@ -3,13 +3,13 @@
 %%
 clear all;
 close all;
-numcalculos=300%24*3*5;%%24cuad p/seg * 10 seg * 5 calculos por cuadro
-K1=200;%%constante de resorte
+numcalculos=600%24*3*5;%%24cuad p/seg * 10 seg * 5 calculos por cuadro
+K1=1500;%%constante de resorte
 K2=.4;%%amortiguamiento
-rompimiento=1.2;%%nivel de rompimiento
-gravedad=[0;0;-4];%%Fuerza externa
-T=0.02;%%intervalo de tiempo
-d1=20;%%dimension x de la malla
+rompimiento=1.1;%%nivel de rompimiento
+gravedad=[0;0;-5];%%Fuerza externa
+T=0.001;%%intervalo de tiempo
+d1=10;%%dimension x de la malla
 d2=5;%%dimensión y
 d3=1;%%dimensión z
 numpuntos=d1*d2*d3;
@@ -34,7 +34,7 @@ for z=0:d3-1%%Bloque de Inicialización de posiciones
          w=1;%%indice para vecinos
          for nz=z-1:z+1
             for ny=y-1:y+1
-         		for nx=x-1:x+1%26 vecinos de la particula + ellamisma              
+         		for nx=x-1:x+1%26 vecinos de la particula + ella misma              
                   if (1<=nx & nx<=d1)&(0<=ny & ny<=d2-1)&(0<=nz & nz<=d3-1)
                      p(k).n(w).ind=nx+d1*ny+d1*d2*nz;%indice del vecino w
                      p(k).n(w).disteq=norm(p(k).r-[nx;ny;nz]);%distancia de equilibrio con el vecino w
@@ -70,10 +70,10 @@ for k=1:numcalculos%%calculos
                     end
                 end        
                 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-                if (1<x & x<d1)%% & (0<y & y<d2-1)%fijo x=1 y x=d1
-%                     if (x==round(d1/2)); gravedad=[0;0;-2];
-%                     else gravedad=[0;0;-2];
-%                     end;
+                if (1<x) %(1<x & x<d1) & (0<y & y<d2-1)%fijo x=1 y x=d1
+                     if (x==round(d1/2)); gravedad=[0;0;-20];
+                     else gravedad=[0;0;-2];
+                     end;
   	  				pf(ind).v=p(ind).v+(-K1*DX-K2*p(ind).v+gravedad)*T;
                     pf(ind).r=p(ind).r+pf(ind).v*T;              
                 end                  
@@ -146,6 +146,7 @@ for k=1:numcalculos%%calculos
             end
 		 end
      end%%plano x
+      
       %%grafica en matlab
         fill3(X,Y,Z,Z);
         axis([-2,d1+2,-2,d2+2,-10,d3+2]);
@@ -155,4 +156,11 @@ for k=1:numcalculos%%calculos
    end%graficacion
 end;%%terminan k calculos
 movie(M);
-%sound5(S,10000);
+%sound(S,10000);
+%TF = abs(fft(S));
+%stem(TF);
+%%Genera video en formato avi 
+vid=VideoWriter('simulacion1');
+open(vid);
+writeVideo(vid,M);
+close(vid);
