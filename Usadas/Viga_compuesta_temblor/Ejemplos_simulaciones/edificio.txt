@@ -1,0 +1,10 @@
+%p=bloque([3;-3;8],[3;-3;0],Amplitud,Amplitud,p);%Columna
+%p=bloque([3;3;8],[3;3;0],Amplitud,Amplitud,p);%Columna
+%p=bloque([-3;-3;8],[-3;-3;0],Amplitud,Amplitud,p);%Columna
+%p=bloque([-3;3;8],[-3;3;0],Amplitud,Amplitud,p);%Columna
+
+
+%p=bloque([-3.25;0;4.25],[3.25;0;4.25],Amplitud,6.5,p);%Techo
+%p=bloque([-3.25;0;7.75],[3.25;0;7.75],Amplitud,6.5,p);%Techo
+%p=bloque([-3.25;0;3.75],[3.25;0;3.75],Amplitud,6.5,p);%Techo
+%p=bola([-1;0;10],[1;0;10],2,2,p);%Columna

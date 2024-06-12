@@ -1,0 +1,20 @@
+%3Bloques
+p=bola([-9;0;0],[-9;0;2],2, 2,p);
+p=bloque([-4;0;0],[-4;0;1],1,1,p);
+p=bloque([0;0;0],[0;0;1.5],1.5,1,p);
+
+%Cambiar en principal
+if p(ind1).r(3)<0.1 %& k<5/T%las que estan en el suelo se aplica mov. oscilatorio
+        %p(ind1).r(1)=p(ind1).r(1)+0.3*T*cos(2*pi*k*T/PO);%oscilación de la base 0 a 10 segundos;%mov eje x
+        p(ind1).Acel(3)=-p(ind1).Acel(3);
+        p(ind1).v(3)=-p(ind1).v(3);
+        p(ind1).v=p(ind1).v+p(ind1).Acel*T;
+        p(ind1).r=p(ind1).r+p(ind1).v*T+p(ind1).Acel*T^2/2;
+
+%Cambiar en Bola
+for x=0incLargonormaXYZ
+         k=k+1;
+         %p(k).movil=1;%movil
+         p(k).r=R1[x;y;z]+p1;%;%%posición inicial de las partículas
+         p(k).v=[25;0;0];%%velocidad inicial
+         p(k).Acel=[15;0;0];%fuerza

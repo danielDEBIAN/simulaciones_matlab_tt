@@ -1,0 +1,6 @@
+p=bloque([0;0;0],[1;0;1.5],Amplitud,Amplitud,p);
+
+p(ind1).Acel(3)=-p(ind1).Acel(3);
+        p(ind1).v(3)=-p(ind1).v(3);
+        p(ind1).v=p(ind1).v+p(ind1).Acel*T;
+        p(ind1).r=p(ind1).r+p(ind1).v*T+p(ind1).Acel*T^2/2;
