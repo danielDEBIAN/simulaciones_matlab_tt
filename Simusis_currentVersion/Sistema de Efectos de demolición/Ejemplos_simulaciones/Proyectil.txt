@@ -1,0 +1,10 @@
+p=bloque([0;0;0],[0;0;5],Amplitud, 5,p);
+p=bloque([3;0;0],[3;0;5],Amplitud, 5,p);
+p=bloque([-15;0;3],[-13;0;3],Amplitud, Amplitud,p);
+
+
+Bola
+
+ p(k).r=R1*[x;y;z]+p1;%;%%posición inicial de las partículas
+ p(k).v=[300;0;0];%%velocidad inicial
+ p(k).Acel=[100;0;0];%fuerza

@@ -1,0 +1,7 @@
+%L Acero y cemento
+p=bloque([-0.250;0;0],[-0.25;0;5],Amplitud,Amplitud,p,2);%Cemento
+p=bloque([-11;0;4.75],[0;0;4.75],Amplitud,Amplitud,p,1);%Acero
+
+%Activar Sismo
+
+p(ind1).r(1)=p(ind1).r(1)+0.3Tcos(2pikTPO);%oscilación de la base 0 a 10 segundos;%mov eje x

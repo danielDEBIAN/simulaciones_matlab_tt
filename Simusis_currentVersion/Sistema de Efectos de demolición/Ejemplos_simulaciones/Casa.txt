@@ -1,0 +1,21 @@
+%Vigas de soporte,.
+p=bloque([3;-3;3],[3;-3;0],Amplitud,Amplitud,p);%Columna
+p=bloque([3;3;3],[3;3;0],Amplitud,Amplitud,p);%Columna
+p=bloque([-3;-3;3],[-3;-3;0],Amplitud,Amplitud,p);%Columna
+p=bloque([-3;3;3],[-3;3;0],Amplitud,Amplitud,p);%Columna
+%marco base de 2 aguas
+p=bloque([3;-3.25;3.25],[3;3.25;3.25],Amplitud,Amplitud,p);%Columna
+p=bloque([-3;-3.25;3.25],[-3;3.25;3.25],Amplitud,Amplitud,p);%Columna
+p=bloque([-3.25;-3;3.25],[3.25;-3;3.25],Amplitud,Amplitud,p);%Columna
+p=bloque([-3.25;3;3.25],[3.25;3;3.25],Amplitud,Amplitud,p);%Columna
+%Viga de soporte
+p=bloque([-3.25;0;5],[3.25;0;5],Amplitud,Amplitud,p);%Columna
+%2 aguas
+p=bloque([-3.25;3.25;3.5],[-3.25;-0.75;5.25],Amplitud,Amplitud,p);%Diagonal
+p=bloque([0;3.25;3.5],[0;-0.25;5.25],Amplitud,Amplitud,p);%Columna
+p=bloque([3.25;3.25;3.5],[3.25;-0.75;5.25],Amplitud,Amplitud,p);%Columna
+p=bloque([-3.25;-3.25;3.5],[-3.25;0.75;5.25],Amplitud,Amplitud,p);%Diagonal
+p=bloque([0;-3.25;3.5],[0;0.25;5.25],Amplitud,Amplitud,p);%Columna
+p=bloque([3.25;-3.25;3.5],[3.25;0.75;5.25],Amplitud,Amplitud,p);%Columna
+%Columna que cae
+p=bloque([9;0;0],[2;0;18],Amplitud,Amplitud,p);

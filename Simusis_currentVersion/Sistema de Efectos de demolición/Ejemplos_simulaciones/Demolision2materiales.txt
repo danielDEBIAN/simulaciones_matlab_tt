@@ -1,0 +1,14 @@
+%Demolicion
+p=bola([-5;0;2],[-3;0;2],2,2,p,1);
+p=bola([-8;0;2],[-6;0;2],2,2,p,1);
+p=bloque([0;0;0],[0;0;4.5],Amplitud,4.5,p,2);
+p=bloque([2;0;0],[2;0;4.5],Amplitud,4.5,p, 2);
+
+Cambiar en Sismo Principal para que los bloques se queden fijos
+if p(ind1).r(3)<0.1 %& k<5/T%las que estan en el suelo se aplica mov. oscilatorio
+        %p(ind1).r(1)=p(ind1).r(1)+0.3*T*cos(2*pi*k*T/PO);%oscilación de la base 0 a 10 segundos;%mov eje x
+        %%Si no hay friccion con el suelo
+        %p(ind1).Acel(3)=-p(ind1).Acel(3);
+        %p(ind1).v(3)=-p(ind1).v(3);
+        %p(ind1).v=p(ind1).v+p(ind1).Acel*T;
+        %p(ind1).r=p(ind1).r+p(ind1).v*T+p(ind1).Acel*T^2/2;

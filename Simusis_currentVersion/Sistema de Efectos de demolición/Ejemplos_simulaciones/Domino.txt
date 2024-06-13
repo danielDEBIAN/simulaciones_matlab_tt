@@ -1,0 +1,16 @@
+%Domino
+p=bloque([-8.5;0;0],[-7.5;0;3],Amplitud,1,p,2);
+p=bloque([-6.5;0;0],[-6.5;0;2],Amplitud,1,p,2);
+p=bloque([-5;0;0],[-5;0;2],Amplitud,1,p,2);
+p=bloque([-3.5;0;0],[-3.5;0;2],Amplitud,1,p,2);
+p=bloque([-2;0;0],[-2;0;2],Amplitud,1,p,2);
+p=bloque([-0.5;0;0],[-0.5;0;2],Amplitud,1,p,2);
+
+
+%Cambiar esta parte para que no halla fricción ni nada atore las fichas
+if p(ind1).r(3)<0.1 %& k<5/T%las que estan en el suelo se aplica mov. oscilatorio
+        %p(ind1).r(1)=p(ind1).r(1)+0.3*T*cos(2*pi*k*T/PO);%oscilación de la base 0 a 10 segundos;%mov eje x
+        p(ind1).Acel(3)=-p(ind1).Acel(3);
+        p(ind1).v(3)=-p(ind1).v(3);
+        p(ind1).v=p(ind1).v+p(ind1).Acel*T;
+        p(ind1).r=p(ind1).r+p(ind1).v*T+p(ind1).Acel*T^2/2;
